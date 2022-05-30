@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="UF3Practica2">
+  <ClassDiagramComponents>
+    <Class name="Llibre" package="" visibility="public" isAbstract="true" xPosition="62.0" yPosition="40.0">
+      <Fields>
+        <Field name="nom" type="String" visibility="private"/>
+        <Field name="tipus" type="String" visibility="private"/>
+        <Field name="editorial" type="String" visibility="private"/>
+        <Field name="any" type="int" visibility="private"/>
+        <Field name="autor" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Copies" package="" visibility="public" xPosition="62.0" yPosition="291.0">
+      <Fields>
+        <Field name="identificador" type="String" visibility="private"/>
+        <Field name="estat" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Autor" package="" visibility="public" xPosition="483.0" yPosition="56.0">
+      <Fields>
+        <Field name="nom" type="String" visibility="private"/>
+        <Field name="nacionalitat" type="String" visibility="private"/>
+        <Field name="dataNeix" type="date" visibility="private"/>
+        <Field name="libro" type="ArrayList&lt;Llibre&gt;" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Prestec" package="" visibility="public" xPosition="325.0" yPosition="420.0">
+      <Fields>
+        <Field name="numPrestec" type="int" visibility="private"/>
+        <Field name="recollir" type="date" visibility="private"/>
+        <Field name="entregar" type="date" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Enum name="Estat" package="" visibility="public" xPosition="51.0" yPosition="420.0">
+      <Literals>
+        <Literal name="BIBLIOTECA"/>
+        <Literal name="PRESTADA"/>
+        <Literal name="RETARD"/>
+        <Literal name="REPARACIO"/>
+      </Literals>
+    </Enum>
+    <Class name="Lector" package="" visibility="public" xPosition="560.0" yPosition="291.0">
+      <Fields>
+        <Field name="nom" type="String" visibility="private"/>
+        <Field name="DNI" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="Escriu" source="Autor" target="Llibre" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="Llegeix" source="Lector" target="Copies" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="Llibre" target="Copies"/>
+    <HasRelation name="Te" source="Lector" target="Prestec" type="Composition" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
